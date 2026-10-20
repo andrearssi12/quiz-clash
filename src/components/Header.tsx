@@ -5,7 +5,7 @@ import { useQuiz } from '@/context/QuizContext';
 import { Sparkles, RotateCcw, Settings, Trophy } from 'lucide-react';
 
 export function Header() {
-  const { title, resetQuizState, startWithSampleData } = useQuiz();
+  const { title, resetQuizState, returnToSetup } = useQuiz();
 
   return (
     <header className="sticky top-0 z-30 w-full backdrop-blur-md bg-slate-900/80 border-b border-slate-800 shadow-sm transition-all">
@@ -38,9 +38,7 @@ export function Header() {
           </button>
 
           <button
-            onClick={() => {
-              window.location.reload();
-            }}
+            onClick={returnToSetup}
             className="flex items-center space-x-1 px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600/50 border border-indigo-500/40 transition"
             title="Ganti Bank Soal / Atur Tim"
           >

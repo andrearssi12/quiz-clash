@@ -18,6 +18,7 @@ interface QuizContextType extends QuizState {
   resetQuizState: () => void;
   startWithSampleData: () => void;
   completeSetup: () => void;
+  returnToSetup: () => void;
 }
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
@@ -212,6 +213,10 @@ export function QuizProvider({ children }: { children: ReactNode }) {
     setIsSetupComplete(true);
   };
 
+  const returnToSetup = () => {
+    setIsSetupComplete(false);
+  };
+
   return (
     <QuizContext.Provider
       value={{
@@ -234,6 +239,7 @@ export function QuizProvider({ children }: { children: ReactNode }) {
         resetQuizState,
         startWithSampleData,
         completeSetup,
+        returnToSetup,
       }}
     >
       {children}
